@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Odin Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+    <div class="logo-strip">
+      <img src="assets/odin-lined.png" alt="odin logo">
+      <h1>ODIN</h1>
+    </div>
+
+    <p class="credit">
+      Photo by Halie West on Unsplash
+    </p>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right">
+
+    <div class="intro">
+      <p>
+        This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.
+        Sign up <strong>now</strong> to get started.
+      </p>
+      <p class="italic">You know you want to.</p>
+    </div>
+
+    <div class="form-box">
+      <h2>Let's do this!</h2>
+
+      <form>
+        <div class="grid">
+
+          <div class="input-group">
+            <label>FIRST NAME</label>
+            <input type="text" placeholder="Thor">
+          </div>
+
+          <div class="input-group">
+            <label>LAST NAME</label>
+            <input type="text" placeholder="Odinson">
+          </div>
+
+          <div class="input-group">
+            <label>EMAIL</label>
+            <input type="email">
+          </div>
+
+          <div class="input-group">
+            <label>PHONE NUMBER</label>
+            <input type="tel">
+          </div>
+
+          <!-- UPDATED PASSWORD -->
+          <div class="input-group">
+            <label>PASSWORD</label>
+            <input id="password" type="password" required minlength="8">
+          </div>
+
+          <!-- UPDATED CONFIRM PASSWORD -->
+          <div class="input-group">
+            <label>CONFIRM PASSWORD</label>
+            <input id="confirmPassword" type="password" required minlength="8">
+            <p id="error" class="error"></p>
+          </div>
+
+        </div>
+
+        <button type="submit">Create Account</button>
+      </form>
+
+      <p class="login">
+        Already have an account? <a href="#">Log in</a>
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ✅ JAVASCRIPT -->
+<script>
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const error = document.getElementById("error");
+
+function validatePasswordMatch() {
+  if (confirmPassword.value === "") {
+    error.textContent = "";
+    confirmPassword.style.border = "1px solid #E5E7EB";
+    return;
+  }
+
+  if (password.value !== confirmPassword.value) {
+    error.textContent = "Passwords do not match";
+    confirmPassword.style.border = "1px solid red";
+  } else {
+    error.textContent = "";
+    confirmPassword.style.border = "1px solid green";
+  }
+}
+
+password.addEventListener("input", validatePasswordMatch);
+confirmPassword.addEventListener("input", validatePasswordMatch);
+</script>
+
+</body>
+</html>
